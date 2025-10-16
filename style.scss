@@ -48,6 +48,45 @@ html {
   gap: $gap;
 }
 
+@mixin aliba() {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-transform: uppercase;
+  font-family: cxb;
+  letter-spacing: 1px;
+}
+
+@mixin kaliba() {
+  height: 1rem;
+  width: 1rem;
+  color: whitesmoke;
+  @include flex-centered(center, center, 0rem);
+  background-color: #292929;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.479);
+  padding: 1.2rem;
+}
+
+@mixin malbika($background-color, $gap: 0rem) {
+  padding: 1.3rem;
+  width: 100%;
+  background-color: $background-color;
+  border-radius: 10px;
+  @include flex-column($gap);
+}
+
+@mixin glass-social-icon() {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  padding: 1.5rem;
+  @include flex-centered(center, center, 0rem);
+  border: 1px solid rgba(255, 255, 255, 0.329);
+}
+
 main {
   margin: auto;
   max-width: 1900px;
@@ -111,11 +150,7 @@ main {
       }
 
       .bottom {
-        padding: 1.5rem;
-        width: 100%;
-        background-color: #1e1e1e;
-        border-radius: 10px;
-        @include flex-column(4.8rem);
+        @include malbika(#1e1e1e, 4.8rem);
 
         > span {
           text-transform: uppercase;
@@ -143,22 +178,9 @@ main {
           }
 
           > div {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-transform: uppercase;
-            font-size: 1rem;
-            letter-spacing: 2px;
-
+            @include aliba();
             > span {
-              height: 1rem;
-              width: 1rem;
-              color: whitesmoke;
-              @include flex-centered(center, center, 0rem);
-              background-color: #292929;
-              border-radius: 50%;
-              border: 1px solid rgba(255, 255, 255, 0.479);
-              padding: 1.2rem;
+              @include kaliba();
             }
           }
         }
@@ -209,11 +231,7 @@ main {
       }
 
       .view-2-botttom-section {
-        border-radius: 10px;
-        width: 100%;
-        background-color: #1e1e1e;
-        padding: 1.5rem;
-        @include flex-column(5rem);
+        @include malbika(#1e1e1e, 5rem);
 
         > span {
           text-transform: uppercase;
@@ -257,7 +275,6 @@ main {
       width: 100%;
       display: grid;
       grid-template-columns: 1fr;
-      // grid-template-rows: 1fr;
       grid-gap: 1rem;
 
       .view-3-section-1 {
@@ -296,21 +313,10 @@ main {
           position: absolute;
           right: 2rem;
           top: 2rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 0.5rem;
+          @include flex-centered(center, center, 0.5rem);
 
           > span {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 50%;
-            height: 2rem;
-            width: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1.5rem;
+            @include glass-social-icon();
 
             > i {
               font-size: 1.2rem;
@@ -329,20 +335,12 @@ main {
       }
 
       .view-3-section-3 {
-        width: 100;
-        background-color: #1e1e1e;
-        border-radius: 10px;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 5rem;
+        @include malbika(#1e1e1e, 5rem);
         font-family: cxb;
         text-transform: uppercase;
 
         > div:nth-child(1) {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
+          @include flex-column(1rem);
 
           > span {
             opacity: 0.7;
@@ -357,51 +355,34 @@ main {
         }
 
         > div:nth-child(2) {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          font-size: 1rem;
-          letter-spacing: 2px;
+          @include aliba();
 
           > span {
-            height: 1rem;
-            width: 1rem;
-            color: whitesmoke;
-            @include flex-centered(center, center, 0rem);
-            background-color: #292929;
-            border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.479);
-            padding: 1.2rem;
+            @include kaliba();
           }
         }
       }
 
-      .view-3-section-4{
-        width: 100%;
-        background-color: #CEBD63;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1.5rem;
+      .view-3-section-4 {
+        @include malbika(#cebd63, 1rem);
         color: black;
         font-family: cxb;
 
-        >span{
+        > span {
           font-size: 1.1rem;
           text-transform: uppercase;
         }
 
-        >h1{
+        > h1 {
           text-transform: uppercase;
           font-size: 2.7rem;
           font-family: chillax_regular;
-          opacity: .9;
+          opacity: 0.9;
           font-weight: 500;
           line-height: 1.1;
         }
 
-        >button{
+        > button {
           background-color: black;
           border: none;
           color: white;
@@ -413,79 +394,50 @@ main {
         }
       }
 
+      .view-3-section-5 {
+        @include malbika(#1e1e1e, 6rem);
 
-      .view-3-section-5{
-        width: 100%;
-        padding: 1.5rem;
-        border-radius: 10px;
-        background-color: #1e1e1e;
-        display: flex;
-        flex-direction: column;
-        gap: 6rem;
-
-        >img{
+        > img {
           width: 4rem;
         }
 
-        >div{
+        > div {
           display: flex;
           align-items: center;
           gap: 1rem;
 
-          span{
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            height: 1rem;
-            width: 1rem;
-            border-radius: 50%;
-            padding: 1.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.329);
-
-            >i{
+          span {
+            @include glass-social-icon();
+            > i {
               font-size: 1.1rem;
             }
           }
-
         }
       }
 
+      .view-3-section-6 {
+        @include malbika(#1e1e1e, 3.8rem);
 
-
-      .view-3-section-6{
-        padding: 1.3rem;
-        width: 100%;
-        background-color: #1e1e1e;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 3.8rem;
-        
-        >div{
-          display: flex;
-          flex-direction: column;
-          gap: 1.4rem;
+        > div {
+          @include flex-column(1.4rem);
           text-transform: uppercase;
           letter-spacing: 1px;
 
-          >h3{
+          > h3 {
             font-size: 1.7rem;
             font-weight: 300;
           }
 
-          >span{
-            opacity: .5;
+          > span {
+            opacity: 0.5;
             font-family: cxb;
-         
           }
 
-          >button{
+          > button {
             color: rgb(0, 0, 0);
             font-weight: 400;
             font-family: cxb;
-            background-color: #CEBD63;
+            background-color: #cebd63;
             border: none;
             border-radius: 10px;
             padding: 14px 20px;
@@ -494,60 +446,31 @@ main {
             letter-spacing: 1px;
           }
         }
-
       }
 
-
-      .view-3-section-7{
-        background-color: #1e1e1e;
-        border-radius: 10px;
-        padding: 1.3rem;
-        display: flex;
-        flex-direction: column;
+      .view-3-section-7 {
+        @include malbika(#1e1e1e, 3rem);
         align-items: center;
-        gap: 3rem;
+        font-family: cxb;
 
-        >span{
+        > span {
           text-align: center;
           text-transform: uppercase;
-          font-family: cxb;
-          font-size: 1.1rem;
-          opacity: .5;
+          opacity: 0.5;
           letter-spacing: 1px;
           line-height: 2;
         }
 
-        >div{
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          text-transform: uppercase;
-          font-family: cxb;
-          letter-spacing: 1px;
-           > span {
-              height: 1rem;
-              width: 1rem;
-              color: whitesmoke;
-              @include flex-centered(center, center, 0rem);
-              background-color: #292929;
-              border-radius: 50%;
-              border: 1px solid rgba(255, 255, 255, 0.479);
-              padding: 1.2rem;
-            }
+        > div {
+          @include aliba();
+          > span {
+            @include kaliba();
+          }
         }
-
-
       }
-
-
     }
   }
 }
-
-
-
-
-
 
 
 @media (min-width: 900px) {
